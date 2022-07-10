@@ -18,7 +18,7 @@ _hibernate - режим, при котором делается "слепок" �
 
 ### Задание 4
 1.
-![Вывод команды `free -h -t`](./pics/4_2_2_1.png)
+![Вывод команды `free -h -t`](./pics/2_4_4_1.png)
 2.
 `btrfs subvolume create /home/alex/swap`
 `cd /home/alex/swap`
@@ -29,10 +29,10 @@ _hibernate - режим, при котором делается "слепок" �
 `sudo mkswap /home/alex/swap/swapfile && sudo chmod 600 /home/alex/swap/swapfile && sudo swapon /home/alex/swap/swapfile`
 3. Настройка автозагрузки свапа при старте системы	`echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab`
 4. 
-![Вывод команды `free -h -t`](./pics/4_2_2_4.png)
+![Вывод команды `free -h -t`](./pics/2_4_4_4.png)
 5. 
-![Вывод команды `swapon -s`](./pics/4_2_2_5.png)
+![Вывод команды `swapon -s`](./pics/2_4_4_5.png)
 6. 
 Открываем файл /etc/sysctl.conf, вносим в конец `vm.swappiness=30`. 
-![Файл /etc/sysctl.conf](./pics/4_2_2_6.png)
+![Файл /etc/sysctl.conf](./pics/2_4_4_6.png)
 Перезагружаемся
