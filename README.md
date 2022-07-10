@@ -17,22 +17,29 @@ _hibernate - режим, при котором делается "слепок" �
 3. `cat /proc/meminfo | grep -i inactive`
 
 ### Задание 4
-1.
+
+1. 
 ![Вывод команды `free -h -t`](./pics/2_4_4_1.png)
-2.
-`btrfs subvolume create /home/alex/swap`
-`cd /home/alex/swap`
-`truncate -s 0 ./swapfile`
-`chattr +C ./swapfile`
-`btrfs property set ./swapfile compression none`
-`sudo dd if=/dev/zero of=/home/alex/swap/swapfile bs=1M count=1096`
-`sudo mkswap /home/alex/swap/swapfile && sudo chmod 600 /home/alex/swap/swapfile && sudo swapon /home/alex/swap/swapfile`
-3. Настройка автозагрузки свапа при старте системы	`echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab`
+
+2. 
+- `btrfs subvolume create /home/alex/swap`
+- `cd /home/alex/swap`
+- `truncate -s 0 ./swapfile`
+- `chattr +C ./swapfile`
+- `btrfs property set ./swapfile compression none`
+- `sudo dd if=/dev/zero of=/home/alex/swap/swapfile bs=1M count=1096`
+- `sudo mkswap /home/alex/swap/swapfile && sudo chmod 600 /home/alex/swap/swapfile && sudo swapon /home/alex/swap/swapfile`
+
+3. 
+Настройка автозагрузки свапа при старте системы	`echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab`
+
 4. 
 ![Вывод команды `free -h -t`](./pics/2_4_4_4.png)
+
 5. 
 ![Вывод команды `swapon -s`](./pics/2_4_4_5.png)
+
 6. 
-Открываем файл /etc/sysctl.conf, вносим в конец `vm.swappiness=30`. 
+- Открываем файл /etc/sysctl.conf, вносим в конец `vm.swappiness=30`. 
 ![Файл /etc/sysctl.conf](./pics/2_4_4_6.png)
-Перезагружаемся
+- Перезагружаемся
